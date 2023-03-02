@@ -4,7 +4,8 @@
 [Polygon Mumbai](https://mumbai.polygonscan.com/)
 
 ## Smart contract
-[0x36F3e6b9eFB8E4874a4B43965eD73E077BCa57c6](https://mumbai.polygonscan.com/address/0x36f3e6b9efb8e4874a4b43965ed73e077bca57c6#code)
+- SubgraphToken [0x36F3e6b9eFB8E4874a4B43965eD73E077BCa57c6](https://mumbai.polygonscan.com/address/0x36f3e6b9efb8e4874a4b43965ed73e077bca57c6#code)
+- Faucet [0xfce27d23dfa22ec3b321c49ccd820860d45abb1a](https://mumbai.polygonscan.com/address/0xfce27d23dfa22ec3b321c49ccd820860d45abb1a#writeContract)
 
 ## Events
 1. Approval
