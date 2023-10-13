@@ -2,6 +2,7 @@
   "name": "erc20-mumbai",
   "license": "UNLICENSED",
   "scripts": {
+    "clean": "graph clean",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --product hosted-service wankhede04/trader-joe-lbpair-nft-ids-ag --access-token $ACCESST --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
