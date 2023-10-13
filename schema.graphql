@@ -1,5 +1,9 @@
-type Deposit @entity(immutable: true) {
+type DepositedToBin @entity(immutable: true) {
   id: Bytes!
-  user: Bytes! # address
-  tokenId: BigInt!
+  sender: Bytes! # address
+  to: Bytes! # address
+  ids: [BigInt!]!
+  amounts: [Bytes!]! # array of amounts in bytes
 }
+
+# Avoid using plural entity name, or else: Error: No values provided for `id`
