@@ -1,11 +1,6 @@
 type Deposit @entity(immutable: false) {
   id: Bytes!
+  transactionHash: Bytes!
   user: Bytes! # address
-  tokenId: BigInt!
-}
-
-type Withdraw @entity(immutable: true) {
-  id: Bytes!
-  user: Bytes! # address
-  tokenId: BigInt!
+  tokenId: [BigInt!]!
 }

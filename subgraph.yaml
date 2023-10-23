@@ -4,24 +4,23 @@ schema:
 dataSources:
   - kind: ethereum
     name: DexLpFarming
-    network: goerli
+    network: fuji
     source:
-      address: "0x8b40eA6330f958fa093c45592f6eEFbD32254aAe"
+      address: "0xbFfD02dD919Ead119149FF9EB3D6849c2D587E8D"
       abi: DexLpFarming
-      startBlock: 9852123
+      startBlock: 26941295
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Deposit
-        - Withdraw
       abis:
         - name: DexLpFarming
           file: ./abis/DexLpFarming.json
       eventHandlers:
-        - event: Deposit(indexed address,uint256)
+        - event: DepositBatch(indexed address,uint256[])
           handler: handleDeposit
-        - event: Withdraw(indexed address,uint256)
+        - event: WithdrawBatch(indexed address,uint256[])
           handler: handleWithdraw
       file: ./src/farming.ts
