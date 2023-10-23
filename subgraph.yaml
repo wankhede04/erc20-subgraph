@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: DexLpFarming
-    network: fuji
+    network: mumbai
     source:
-      address: "0xbFfD02dD919Ead119149FF9EB3D6849c2D587E8D"
+      address: "0x5755E91Fb70c458509500E306b9a830648aC4344"
       abi: DexLpFarming
-      startBlock: 26941295
+      startBlock: 41114607
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -19,8 +19,8 @@ dataSources:
         - name: DexLpFarming
           file: ./abis/DexLpFarming.json
       eventHandlers:
-        - event: DepositBatch(indexed address,uint256[])
+        - event: Deposit(indexed address,uint256)
           handler: handleDeposit
-        - event: WithdrawBatch(indexed address,uint256[])
+        - event: Withdraw(indexed address,uint256)
           handler: handleWithdraw
       file: ./src/farming.ts

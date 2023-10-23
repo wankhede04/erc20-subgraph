@@ -7,10 +7,16 @@
         "type": "address"
       },
       {
-        "internalType": "contract ILBPair",
-        "name": "_LBPair",
+        "internalType": "contract ITokenTracker",
+        "name": "_tokenTracker",
         "type": "address"
-      }
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      { "internalType": "address", "name": "_nativeToken", "type": "address" }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -45,12 +51,18 @@
       },
       {
         "indexed": false,
-        "internalType": "uint256[]",
-        "name": "tokenId",
-        "type": "uint256[]"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       }
     ],
-    "name": "DepositBatch",
+    "name": "EmergencyWithdraw",
     "type": "event"
   },
   {
@@ -205,62 +217,9 @@
     "type": "event"
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256[]",
-        "name": "tokenId",
-        "type": "uint256[]"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "WithdrawAndHarvestBatch",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256[]",
-        "name": "tokenId",
-        "type": "uint256[]"
-      }
-    ],
-    "name": "WithdrawBatch",
-    "type": "event"
-  },
-  {
     "inputs": [],
     "name": "ACC_REWARD_PRECISION",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "LBPair",
-    "outputs": [
-      { "internalType": "contract ILBPair", "name": "", "type": "address" }
-    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -282,12 +241,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256[]", "name": "_tokenIds", "type": "uint256[]" },
-      {
-        "internalType": "uint256[]",
-        "name": "_tokenAmounts",
-        "type": "uint256[]"
-      }
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
+    "name": "deposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256[]", "name": "_tokenIds", "type": "uint256[]" }
     ],
     "name": "depositBatch",
     "outputs": [],
@@ -295,7 +258,7 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "to", "type": "address" }],
+    "inputs": [{ "internalType": "address", "name": "_to", "type": "address" }],
     "name": "harvest",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -312,12 +275,16 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
-    ],
-    "name": "liqudityOfId",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [],
+    "name": "liquidityPool",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nativeToken",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -389,6 +356,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "tokenTracker",
+    "outputs": [
+      {
+        "internalType": "contract ITokenTracker",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "address", "name": "newOwner", "type": "address" }
     ],
@@ -454,7 +434,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256[]", "name": "_tokenIds", "type": "uint256[]" },
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" },
       { "internalType": "address", "name": "_to", "type": "address" }
     ],
     "name": "withdrawAndHarvest",
