@@ -11,7 +11,7 @@ export function handleDeposit(event: DepositEvent): void {
 
     entity.transactionHash = event.transaction.hash;
     entity.user = event.params.user;
-    entity.tokenId = event.params.tokenId;
+    entity.tokenId = event.params.tokenId[index];
     entity.save();
   }
 }

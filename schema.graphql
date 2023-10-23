@@ -2,5 +2,5 @@ type Deposit @entity(immutable: false) {
   id: Bytes!
   transactionHash: Bytes!
   user: Bytes! # address
-  tokenId: [BigInt!]!
+  tokenId: BigInt!
 }
