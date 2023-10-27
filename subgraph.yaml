@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: DexLpFarming
-    network: arbitrum-goerli
+    network: chapel
     source:
-      address: "0xc7f793b735dC6d86e819E3693A93BaB27aDAc820"
+      address: "0x5755E91Fb70c458509500E306b9a830648aC4344"
       abi: DexLpFarming
-      startBlock: 48656717
+      startBlock: 34461072
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
