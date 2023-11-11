@@ -3,22 +3,24 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: DexLpFarming
-    network: mumbai
+    name: Voter
+    network: arbitrum-goerli
     source:
-      address: "0x238c82a878a133CcCF471957cBC22DCCfFe24B85"
-      abi: DexLpFarming
-      startBlock: 41001121
+      address: "0x3E81CF63fA4E1187ccDCE2D6b783DFd159E6B42D"
+      abi: Voter
+      startBlock: 50685266
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Deposit
+        - Voted
       abis:
-        - name: DexLpFarming
-          file: ./abis/DexLpFarming.json
+        - name: Voter
+          file: ./abis/Voter.json
       eventHandlers:
-        - event: Deposit(indexed address,uint256)
-          handler: handleDeposit
-      file: ./src/farming.ts
+        - event: Voted(indexed address,indexed uint256,indexed address,uint256,uint256,uint256)
+          handler: handleVote
+        - event: Abstained(indexed address,indexed uint256,indexed address,uint256,uint256,uint256)
+          handler: handleReset
+      file: ./src/voter.ts

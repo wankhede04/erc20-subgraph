@@ -1,5 +1,9 @@
-type Deposit @entity(immutable: true) {
+type Voted @entity(immutable: false) {
   id: Bytes!
+  voter: Bytes!
+  pool: BigInt!
   user: Bytes! # address
-  tokenId: BigInt!
+  weight: BigInt!
+  totalWeight: BigInt!
+  timestamp: BigInt!
 }
