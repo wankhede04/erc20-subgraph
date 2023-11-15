@@ -6,4 +6,5 @@ type Voted @entity(immutable: false) {
   weight: BigInt!
   totalWeight: BigInt!
   timestamp: BigInt!
+  transactionHash: Bytes!
 }

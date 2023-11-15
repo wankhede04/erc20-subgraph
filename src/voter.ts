@@ -11,6 +11,7 @@ export function handleVote(event: VotedEvent): void {
   entity.weight = event.params.weight;
   entity.totalWeight = event.params.totalWeight;
   entity.timestamp = event.params.timestamp;
+  entity.transactionHash = event.transaction.hash;
 
   entity.save();
 }
